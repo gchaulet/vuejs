@@ -1,23 +1,15 @@
 let vm = new Vue ({
     el: '#app',
     data: {
-       message : 'Salut les gens',
-       link:'https://google.com',
-       cls: 'success',
-       persons: ['Jonathan', 'Marion', 'Jean', 'Patrick'],
-       style: { background: '#0000'}
-    },
-    methods: {
-        close: function(){
-
-            this.success = false
-        },
-        addPerson: function() {
-            this.persons.push('Paul')
-        }
-       
+       seconds: 0
     },
     mounted: function(){
-        console.log(this.$el)
+        this.$interval = setInterval(() => {
+            console.log('time')
+            this.seconds++
+        }, 1000)
+    },
+    destroyed: function() {
+        clearInterval(this.$interval)
     }
 })

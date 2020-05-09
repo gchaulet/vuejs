@@ -16,13 +16,7 @@
         <div class="header item">Tutoriel</div>
     </div>
     <div class="ui main container" id="app">
-        <input type="checkbox" v-model="cls" :true-value="'success'" :false-value="'error'">
-        <div class="ui  message" :class="cls">
-            <i class="close icon" @click="close"></i>
-            <p>{{ persons }} </p>
-           
-        </div>
-        <button @click="addPerson">Ajouter une personne</button>
+        {{ seconds }}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.5/vue.js"></script>
     <script src="js/app.js"></script>
