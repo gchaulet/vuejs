@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"/>
+    
     <style>
         .main.container{
              
@@ -15,16 +16,12 @@
         <div class="header item">Tutoriel</div>
     </div>
     <div class="ui main container" id="app">
-        <a v-bind:href="link">{{ message }}</a>
-        <ul>
-            <li v-for="person in persons">{{ person }}</li>
-        </ul>
-        <div class="ui success message" v-if="success">
-            <p>Bravo enregistrement ok</p>
+        <input type="checkbox" v-model="success" >
+        <div class="ui  message" :class="(success ? 'success' : 'error')">
+            <i class="close icon" @click="close"></i>
+            <p>{{ message }}</p>
         </div>
-        <div class="ui error message" v-if="!success">
-                <p>Echec enregistrement ko</p>
-            </div>
+     
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.5/vue.js"></script>
     <script src="js/app.js"></script>
