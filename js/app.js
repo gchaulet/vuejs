@@ -1,3 +1,8 @@
+Vue.directive('salut', {
+    bind: function (el, binding, vnode){
+        console.log(el, binding)
+    }
+})
 let vm = new Vue ({
     el: '#app',
     data: {
