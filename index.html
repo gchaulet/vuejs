@@ -17,7 +17,7 @@
     </div>
     <div class="ui main container" id="app">
         <input type="checkbox" v-model="success" >
-        <div class="ui  message" :class="(success ? 'success' : 'error')">
+        <div class="ui  message" :style="style()">
             <i class="close icon" @click="close"></i>
             <p>{{ message }}</p>
         </div>
