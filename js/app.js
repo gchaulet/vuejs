@@ -1,4 +1,4 @@
-new Vue ({
+let vm = new Vue ({
     el: '#app',
     data: {
        message : 'Salut les gens',
@@ -12,6 +12,12 @@ new Vue ({
 
             this.success = false
         },
+        addPerson: function() {
+            this.persons.push('Paul')
+        }
        
+    },
+    mounted: function(){
+        console.log(this.$el)
     }
 })
