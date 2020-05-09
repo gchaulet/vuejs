@@ -7,11 +7,13 @@ let vm = new Vue ({
        lastname: 'Delatour',
        fullname: ''
     },
-    watch: {
-        fullname:  function(value) {
-            console.log('watch', value)
+    methods: {
+        demo: function() {
+            console.log('demo')
+        },
+        demo2: function(){
+            console.log('demo2')
         }
-        
     }
    
 })
