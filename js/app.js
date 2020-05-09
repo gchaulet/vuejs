@@ -3,13 +3,19 @@ let vm = new Vue ({
     data: {
        success: false,
        message: '',
-       fisrname: 'Jean',
+       firstname: 'Jean',
        lastname: 'Delatour'
     },
     computed: {
-        cls: function() {
-            console.log('cls call')
-            return this.success === true ? 'success' : 'error'
+        fullname:  {
+           get: function(){
+            return this.firstname + ' ' + this.lastname
+           }, 
+           set: function(value){
+            let parts = value.split(' ')
+            this.firstname = parts[0]
+            this.lastname = parts[1]
+           }
         }
     }
    
