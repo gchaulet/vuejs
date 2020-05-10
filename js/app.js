@@ -16,15 +16,17 @@ let counter = {
     props : {
         start: {type: Number, default: 0}
     },
+    computed: {
+        total: function(){
+            return this.start + this.count
+        }
+    },
     methods: {
         increment: function() {
             this.count++
         }
     },
-    template: `<button @click="increment">{{ count }}</button>`,
-    mounted: function(){
-        this.count = this.start
-    }
+    template: `<button @click="increment">{{ total }}</button>`,
 }
 
 let vm = new Vue ({
