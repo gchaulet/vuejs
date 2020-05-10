@@ -1,27 +1,16 @@
-let capitalize = function (value, prefix, suffix){
-    return prefix + value.toUpperCase() + suffix
-}
-
-Vue.filter ('reverse', function(value){
-    return value.split('').reverse().join('')
-})
-
-let salut = function (el, binding){
-        el.value = binding.value
-        console.log('bind')
+let message = {
+    props: {
+        type: { type: String, default: 'success'},
+        message: String
+    },
+    template: `<div class="ui message " :class="type">{{ message }}</div>`
 }
 
 let vm = new Vue ({
     el: '#app',
+    components: { message },
     data: {
-       success: false,
-       message: 'Jean',
-    },
-    directives: {
-        salut : salut
-    },
-    filters: {
-        capitalize
+       message: 'Le meilleur best',
     },
     methods: {
         demo: function() {
