@@ -1,9 +1,20 @@
 let message = {
     props: {
         type: { type: String, default: 'success'},
-        message: String
+        message: String,
+        header: String
     },
-    template: `<div class="ui message " :class="type">{{ message }}</div>`
+    template: `<div class="ui message " :class="type">
+    <i class="close icon" @click.prevent="close"></i>
+    <div class="header">{{ header }}</div>
+    {{ message }}
+    </div>`,
+    methods: {
+        close(){
+            //this.$parent.$data.alert = false
+            this.$emit('close')
+        }
+    }
 }
 
 let counter = {
@@ -34,14 +45,15 @@ let vm = new Vue ({
     components: { message, counter },
     data: {
        message: 'Le meilleur best',
+       alert: false
     },
     methods: {
-        demo: function() {
-            console.log('demo')
-        },
-        demo2: function(){
-            console.log('demo2')
-        }
+      showAlert(){
+        this.alert = true
+      },
+      hideAlert(){
+        this.alert = false
+      }
     }
    
 })
