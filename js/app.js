@@ -39,13 +39,54 @@ let counter = {
     },
     template: `<button @click="increment">{{ total }}</button>`,
 }
+let formUser = {
+    props: {
+        //value a la place de user car c'est v-model dans le form-user html
+        value: Object
+    },
+    data() {
+        //to isolate edit firstname and lastname to local component
+        return {
+            userLocal: {...this.value}
+        } 
+    },
+    methods: {
+        save() {
+            this.$emit('input', this.userLocal)
+        }
+    },
+    template: `
+        <form class="ui form" @submit.prevent="save">
+            <div class="field">
+                <label for="">Prénom</label>
+                <input type="text" v-model="userLocal.firstname">
+            </div>
+            <div class="field">
+                <label for="">Nom</label>
+                <input type="text" v-model="userLocal.lastname">
+            </div>
+            <button class="ui button" type="submit">Envoyer</button>
+            <p>
+            <slot></slot>
+            </p>
+        </form>
+    `,
+    mounted: function() {
+        console.log(this)
+    }
+    
+}
 
 let vm = new Vue ({
     el: '#app',
-    components: { message, counter },
+    components: { message, counter, formUser },
     data: {
        message: 'Le meilleur best',
-       alert: false
+       alert: false,
+       user: {
+           firstname: 'Jean',
+           lastname: 'DeLaTour'
+       }
     },
     methods: {
       showAlert(){

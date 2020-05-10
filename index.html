@@ -16,6 +16,10 @@
         <div class="header item">Tutoriel</div>
     </div>
     <div class="ui main container" id="app">
+      <form-user v-model="user">
+          Lorem ipsum dolor sit amet
+      </form-user>
+      <pre>user parent: {{ user }}</pre>
       <message type="error" :message="message" header="Attention" v-if="alert"  @close="hideAlert"></message>
       <button @click="showAlert">Alerter</button>
       <counter></counter>
